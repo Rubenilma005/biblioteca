@@ -73,26 +73,6 @@ def cadastrar_livro():
 
 
 
-
-def cadastrar_usuario():
-    nome = entry_nome.get()
-    email = entry_email.get()
-   
-    if nome and email:
-        conn = conectar_banco()
-        cursor = conn.cursor()
-        cursor.execute('INSERT INTO Usuarios (nome, email) VALUES (?, ?)', (nome, email))
-        conn.commit()
-        conn.close()
-        messagebox.showinfo("Sucesso", "Usuário cadastrado com sucesso!")
-        entry_nome.delete(0, END)
-        entry_email.delete(0, END)
-    else:
-        messagebox.showwarning("Erro", "Preencha todos os campos!")
-
-
-
-
 # Funções para empréstimos e devoluções
 def registrar_emprestimo():
     livro_id = entry_livro_id.get()
